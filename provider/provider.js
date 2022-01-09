@@ -4,7 +4,6 @@ class API extends RESTDataSource {
     constructor() {
         super();
         this.baseURL = 'https://covid-19-data.p.rapidapi.com';
-        this.apiDate = '2020-04-01';
       }
 
     willSendRequest(request) {
@@ -15,11 +14,10 @@ class API extends RESTDataSource {
     async getDailyReportByCountryName(countryName){
 
         const requestParams = {
-            name: countryName,
-            date: this.apiDate
+            name: countryName
         }
 
-        const response = await this.get('/report/country/name', requestParams);
+        const response = await this.get('/country', requestParams);
         return response;
     }
 

@@ -1,18 +1,12 @@
 const { gql } = require('apollo-server');
 
 const typeDefs = gql`
-  type Province {
-    province: String,
-    confirmed: Int,
-    recovered: Int,
-    deaths: Int,
-    active: Int
-  }
-
   type Stats {
     country: String,
-    provinces: [Province],
-    date: String
+    deaths: Int,
+    critical: Int,
+    confirmed: Int,
+    recovered: Int
   }
 
   type Query {
